@@ -41,6 +41,8 @@ export default {
 }
 
 .header__list {
+  padding: 0;
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
 }
@@ -54,11 +56,12 @@ export default {
 }
 
 .header__link {
+
+  text-decoration: none;
   font-family: 'Open Sans';
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-  text-decoration: none;
   text-transform: uppercase;
   color: #E0E0E0;
 }
@@ -84,5 +87,9 @@ export default {
   text-transform: uppercase;
 
   color: #FFFFFF;
+}
+
+.header__logo{
+  width: 180px;
 }
 </style>
