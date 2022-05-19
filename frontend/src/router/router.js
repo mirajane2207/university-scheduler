@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import CoursesView from "@/views/CoursesView";
 import AccountView from "@/views/AccountView";
 import ScheduleView from "@/views/ScheduleView";
+import CoursesViewWithStore from "@/views/CoursesViewWithStore";
 
 const routes = [
   {
@@ -44,6 +45,10 @@ const routes = [
   {
     path: '/schedule',
     component: ScheduleView
+  },
+  {
+    path: '/store',
+    component: CoursesViewWithStore
   }
 ]
 

@@ -1,14 +1,8 @@
 import { createStore } from 'vuex'
+import {courseModule} from "@/store/courseModule";
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
+    course: courseModule
   }
 })
