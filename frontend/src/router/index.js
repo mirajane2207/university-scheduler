@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import CourseView from "@/views/CourseView";
+import CoursesView from "@/views/CoursesView";
+import AccountView from "@/views/AccountView";
+import ScheduleView from "@/views/ScheduleView";
 
 const routes = [
   {
@@ -9,27 +11,39 @@ const routes = [
   },
   {
     path: '/students',
-    component: CourseView
+    component: CoursesView
   },
   {
     path: '/professors',
-    component: CourseView
+    component: CoursesView
   },
   {
     path: '/groups',
-    component: CourseView
+    component: CoursesView
   },
   {
     path: '/auditoriums',
-    component: CourseView
+    component: CoursesView
   },
   {
-    path: '/courses',
-    component: CourseView
+    path: '/admin/courses',
+    component: CoursesView
   },
   {
     path: '/lectures',
-    component: CourseView
+    component: CoursesView
+  },
+  {
+    path: '/account',
+    component: AccountView
+  },
+  {
+    path: '/courses',
+    component: CoursesView
+  },
+  {
+    path: '/schedule',
+    component: ScheduleView
   }
 ]
 

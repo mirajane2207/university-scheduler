@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header__logo">
-      <a href="/welcome.html" class="header__logo-link">
+      <a href="/" class="header__logo-link">
         <img src="@/assets/svg/logo.svg" alt="NAU Scheduler" class="header__logo-pic">
       </a>
     </div>
@@ -9,13 +9,13 @@
       <nav class="header__nav">
         <ul class="header__list">
           <li class="header__item">
-            <a href="account.html" class="header__link">Account</a>
+            <router-link to="/account" class="header__link">Account</router-link>
           </li>
           <li class="header__item">
-            <a href="courses.html" class="header__link">courses</a>
+            <router-link to="/courses" class="header__link">courses</router-link>
           </li>
           <li class="header__item">
-            <a href="schedule.html" class="header__link">schedule</a>
+            <router-link to="/schedule" class="header__link">schedule</router-link>
           </li>
         </ul>
       </nav>
