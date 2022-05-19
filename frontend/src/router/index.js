@@ -8,7 +8,27 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/courseView',
+    path: '/students',
+    component: CourseView
+  },
+  {
+    path: '/professors',
+    component: CourseView
+  },
+  {
+    path: '/groups',
+    component: CourseView
+  },
+  {
+    path: '/auditoriums',
+    component: CourseView
+  },
+  {
+    path: '/courses',
+    component: CourseView
+  },
+  {
+    path: '/lectures',
     component: CourseView
   }
 ]
