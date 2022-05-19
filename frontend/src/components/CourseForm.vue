@@ -19,10 +19,7 @@
 
 <script>
 
-import CustomButton from "@/components/UI/CustomButton";
-import CustomInput from "@/components/UI/CustomInput";
 export default {
-  components: {CustomInput, CustomButton},
   data() {
     return {
       course: {

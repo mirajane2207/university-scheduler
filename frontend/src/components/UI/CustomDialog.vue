@@ -35,6 +35,7 @@ export default {
 }
 .dialog__content {
   margin: auto;
-  background: white;
+  background: #181818;
+  border-radius: 20px;
 }
 </style>

@@ -19,16 +19,38 @@
           </li>
         </ul>
       </nav>
+    <custom-button
+        class="log-in-btn"
+        @click="showDialog"
+    >
+      Log in
+    </custom-button>
+    <custom-dialog v-model:show="dialogVisisble">
+      <login-form>
 
-    <button class="log-in-btn"> Log in</button>
+      </login-form>
+    </custom-dialog>
   </div>
 </template>
 
 <script>
-import CustomButton from "@/components/UI/CustomButton";
+
+import LoginFrom from "@/components/LoginFrom";
+
 export default {
   name: "Navbar",
-  components: {CustomButton}
+  components: {LoginFrom},
+
+  data() {
+    return {
+      dialogVisisble: false,
+    }
+  },
+  methods: {
+    showDialog() {
+      this.dialogVisisble = true;
+    }
+  }
 }
 </script>
 
@@ -56,7 +78,6 @@ export default {
 }
 
 .header__link {
-
   text-decoration: none;
   font-family: 'Open Sans';
   font-weight: 400;
@@ -75,14 +96,12 @@ export default {
 }
 
 .log-in-btn {
-  padding: 5px 60px;
+  border-color: transparent;
+  padding: 0px 60px;
   background: #8AC1D9;
   border-radius: 8px;
   font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
   font-size: 16px;
-  line-height: 26px;
   /* identical to box height, or 162% */
   text-transform: uppercase;
 

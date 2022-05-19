@@ -23,7 +23,6 @@ html {
 body {
   font-family: 'Montserrat';
   font-style: normal;
-  font-size: 20px;
   font-weight: 400;
   color: #E0E0E0;
   background: #181818;
@@ -32,4 +31,5 @@ body {
   background-repeat: no-repeat;
   background-position: bottom;
 }
+
 </style>
