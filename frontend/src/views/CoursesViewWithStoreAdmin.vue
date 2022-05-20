@@ -1,11 +1,24 @@
 <template>
-  <div class="course-view">
-    <div class="side-bar"></div>
-    <courses-list-items
+  <div>
+    <h1>Course List page</h1>
+    <custom-button
+        @click="showDialog"
+    >
+      Create
+    </custom-button>
+    <custom-dialog v-model:show="dialogVisisble">
+      <course-form
+          @create="createCourse"
+      />
+    </custom-dialog>
+    <courses-list
         :courses="courses"
         @remove="removeCourse"
         v-if="!isLoading"
     />
+    <div v-else>
+      Loading data..
+    </div>
   </div>
 </template>
 
@@ -13,16 +26,14 @@
 import CourseForm from "@/components/CourseForm";
 import CoursesList from "@/components/CoursesList";
 import {mapState, mapActions} from 'vuex';
-import CoursesListItems from "@/components/CoursesListItems";
 
 export default {
   components: {
-    CoursesListItems,
     CourseForm, CoursesList
   },
   data() {
     return {
-      dialogVisisble: false
+      dialogVisisble: false,
     }
   },
   methods: {
@@ -55,30 +66,4 @@ export default {
 </script>
 
 <style>
-
-.course-view {
-  background-image: url("@/assets/courses-bg.png");
-  background-position: bottom;
-  background-position-y: -100px;
-  background-repeat: repeat-y;
-}
-
-body {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-size: 20px;
-  font-weight: 400;
-  color: #E0E0E0;
-  background: #181818;
-}
-
-.side-bar {
-  position: absolute;
-  top: 63px;
-  left: 70px;
-  height: 1200vh;
-  width: 45px;
-  background-image: url("@/assets/courses-side-bar.png");
-  background-repeat: repeat-y;
-}
 </style>

@@ -40,4 +40,10 @@ export default {
   text-align: center;
   text-transform: uppercase;
 }
+.home {
+  background-image: url("@/assets/blobs.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
 </style>

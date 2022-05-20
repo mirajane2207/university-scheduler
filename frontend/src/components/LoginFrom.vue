@@ -48,7 +48,6 @@ export default {
   text-transform: uppercase;
 }
 
-
 .log-in-form__field {
   margin-bottom: 17px;
   width: 100%;

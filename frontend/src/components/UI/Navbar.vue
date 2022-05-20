@@ -56,6 +56,7 @@ export default {
 
 <style scoped>
 .header {
+  background: transparent;
   padding: 20px 40px;
   display: flex;
   flex-wrap: wrap;

@@ -1,6 +1,6 @@
 <template>
-  <navbar></navbar>
   <div class="app">
+    <navbar></navbar>
     <router-view></router-view>
   </div>
 </template>
@@ -26,10 +26,6 @@ body {
   font-weight: 400;
   color: #E0E0E0;
   background: #181818;
-  background-image: url("@/assets/blobs.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
 }
 
 </style>
