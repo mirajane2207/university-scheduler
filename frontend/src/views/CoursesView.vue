@@ -12,7 +12,7 @@
           @create="createCourse"
       />
     </custom-dialog>
-    <courses-list
+    <courses-table
         :courses="courses"
         @remove="removeCourse"
         v-if="!isLoading"
@@ -25,11 +25,13 @@
 
 <script>
 import CourseForm from "@/components/CourseForm";
-import CoursesList from "@/components/CoursesList";
+import CoursesList from "@/components/CoursesTable";
 import axios from "axios"
+import CoursesTable from "@/components/CoursesTable";
 
 export default {
   components: {
+    CoursesTable,
     CourseForm, CoursesList
   },
   data() {

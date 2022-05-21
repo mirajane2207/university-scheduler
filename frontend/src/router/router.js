@@ -4,6 +4,7 @@ import CoursesView from "@/views/CoursesViewAdmin";
 import AccountView from "@/views/AccountView";
 import ScheduleView from "@/views/ScheduleView";
 import CoursesViewWithStore from "@/views/CoursesViewWithStore";
+import CoursesViewWithStoreAdmin from "@/views/CoursesViewWithStoreAdmin";
 
 const routes = [
   {
@@ -40,7 +41,7 @@ const routes = [
   },
   {
     path: '/courses',
-    component: CoursesView
+    component: CoursesViewWithStoreAdmin
   },
   {
     path: '/schedule',

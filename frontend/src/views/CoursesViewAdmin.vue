@@ -25,7 +25,7 @@
 
 <script>
 import CourseForm from "@/components/CourseForm";
-import CoursesList from "@/components/CoursesList";
+import CoursesList from "@/components/CoursesTable";
 import axios from "axios"
 
 export default {

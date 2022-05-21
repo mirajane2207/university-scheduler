@@ -1,16 +1,5 @@
 <template>
-  <div>
-    <h1>Course List page</h1>
-    <custom-button
-        @click="showDialog"
-    >
-      Create
-    </custom-button>
-    <custom-dialog v-model:show="dialogVisisble">
-      <course-form
-          @create="createCourse"
-      />
-    </custom-dialog>
+  <div class="course-table-view">
     <courses-list
         :courses="courses"
         @remove="removeCourse"
@@ -24,7 +13,7 @@
 
 <script>
 import CourseForm from "@/components/CourseForm";
-import CoursesList from "@/components/CoursesList";
+import CoursesList from "@/components/CoursesTable";
 import {mapState, mapActions} from 'vuex';
 
 export default {
@@ -33,7 +22,14 @@ export default {
   },
   data() {
     return {
-      dialogVisisble: false,
+      editVisisble: false,
+      courses: [
+        {id: '1', name: 'english', description: 'Aliqua id fugiat nostrud irure ex duis ea Aliqua id fugiat nostrud irure ex duis ea', professors: 'Leslie Alexander, Leslie Alexander, Leslie Alexander'},
+        {id: '2', name: 'english', description: 'Aliqua id fugiat nostrud irure ex duis ea ', professors: 'Leslie Alexander, Leslie Alexander, Leslie Alexander'},
+        {id: '3', name: 'english', description: 'Aliqua id fugiat nostrud irure ex duis ea ', professors: 'Leslie Alexander, Leslie Alexander, Leslie Alexander'},
+        {id: '4', name: 'english', description: 'Aliqua id fugiat nostrud irure ex duis ea ', professors: 'Leslie Alexander, Leslie Alexander, Leslie Alexander'},
+        {id: '5', name: 'english', description: 'Aliqua id fugiat nostrud irure ex duis ea ', professors: 'Leslie Alexander, Leslie Alexander, Leslie Alexander'},
+      ]
     }
   },
   methods: {
@@ -49,16 +45,16 @@ export default {
       this.courses = this.courses.filter( c => c.id !== course.id)
     },
     showDialog() {
-      this.dialogVisisble = true;
+      this.e = true;
     }
 
   },
   mounted(){
-    this.fetchCourses();
+    // this.fetchCourses();
   },
   computed: {
     ...mapState({
-      courses: state => state.course.courses,
+      // courses: state => state.course.courses,
       isLoading: state => state.course.isLoading
     })
   }
@@ -66,4 +62,7 @@ export default {
 </script>
 
 <style>
+.course-table-view {
+  padding: 40px;
+}
 </style>

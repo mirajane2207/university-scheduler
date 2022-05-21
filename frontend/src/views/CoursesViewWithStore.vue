@@ -11,7 +11,7 @@
 
 <script>
 import CourseForm from "@/components/CourseForm";
-import CoursesList from "@/components/CoursesList";
+import CoursesList from "@/components/CoursesTable";
 import {mapState, mapActions} from 'vuex';
 import CoursesListItems from "@/components/CoursesListItems";
 

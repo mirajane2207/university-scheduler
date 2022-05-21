@@ -1,4 +1,5 @@
 <template>
+  <slot></slot>
   <input
       type="text"
       class="input"
@@ -22,6 +23,15 @@ export default {
 
 <style scoped>
 .input {
-  border: 1px solid red;
+  padding: 4px;
+  border: 0;
+  background: #181818;
+  border-radius: 8px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #E0E0E0;
 }
+
 </style>
