@@ -4,7 +4,15 @@ import CoursesView from "@/views/CoursesViewAdmin";
 import AccountView from "@/views/AccountView";
 import ScheduleView from "@/views/ScheduleView";
 import CoursesViewWithStore from "@/views/CoursesViewWithStore";
-import CoursesViewWithStoreAdmin from "@/views/CoursesViewWithStoreAdmin";
+import CoursesViewWithStoreAdmin from "@/views/AdminCoursesView";
+import AdminView from "@/views/AdminView";
+import AdminStudentsView from "@/views/AdminStudentsView";
+import AdminProfessorsView from "@/views/AdminProfessorsView";
+import AdminGroupsView from "@/views/AdminGroupsView";
+import AdminAuditoriumsView from "@/views/AdminAuditoriumsView";
+import AdminCoursesView from "@/views/AdminCoursesView";
+import AdminLecturesView from "@/views/AdminLecturesView";
+import GroupView from "@/views/GroupView";
 
 const routes = [
   {
@@ -12,28 +20,28 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/students',
-    component: CoursesView
+    path: '/admin/students',
+    component: AdminStudentsView
   },
   {
-    path: '/professors',
-    component: CoursesView
+    path: '/admin/professors',
+    component: AdminProfessorsView
   },
   {
-    path: '/groups',
-    component: CoursesView
+    path: '/admin/groups',
+    component: AdminGroupsView
   },
   {
-    path: '/auditoriums',
-    component: CoursesView
+    path: '/admin/auditoriums',
+    component: AdminAuditoriumsView
   },
   {
     path: '/admin/courses',
-    component: CoursesView
+    component: AdminCoursesView
   },
   {
-    path: '/lectures',
-    component: CoursesView
+    path: '/admin/lectures',
+    component: AdminLecturesView
   },
   {
     path: '/account',
@@ -41,16 +49,20 @@ const routes = [
   },
   {
     path: '/courses',
-    component: CoursesViewWithStoreAdmin
+    component: CoursesViewWithStore
   },
   {
     path: '/schedule',
     component: ScheduleView
   },
   {
-    path: '/store',
-    component: CoursesViewWithStore
-  }
+    path: '/admin',
+    component: AdminView
+  },
+  {
+    path: '/group',
+    component: GroupView
+  },
 ]
 
 const router = createRouter({
