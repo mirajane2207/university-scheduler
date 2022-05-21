@@ -23,25 +23,18 @@ export default {
   data() {
     return {
       editVisisble: false,
-      courses: [
-        {id: '1', name: 'english', description: 'Aliqua id fugiat nostrud irure ex duis ea Aliqua id fugiat nostrud irure ex duis ea', professors: 'Leslie Alexander, Leslie Alexander, Leslie Alexander'},
-        {id: '2', name: 'english', description: 'Aliqua id fugiat nostrud irure ex duis ea ', professors: 'Leslie Alexander, Leslie Alexander, Leslie Alexander'},
-        {id: '3', name: 'english', description: 'Aliqua id fugiat nostrud irure ex duis ea ', professors: 'Leslie Alexander, Leslie Alexander, Leslie Alexander'},
-        {id: '4', name: 'english', description: 'Aliqua id fugiat nostrud irure ex duis ea ', professors: 'Leslie Alexander, Leslie Alexander, Leslie Alexander'},
-        {id: '5', name: 'english', description: 'Aliqua id fugiat nostrud irure ex duis ea ', professors: 'Leslie Alexander, Leslie Alexander, Leslie Alexander'},
-      ]
     }
   },
   methods: {
     ...mapActions({
-      fetchCourses: 'course/fetchCourses'
+      fetchCourses: 'courses/fetchCourses'
     }),
 
-    createCourse(course) {
+    createCourse(courses) {
       this.courses.push(course);
       this.dialogVisisble = false;
     },
-    removeCourse(course) {
+    removeCourse(courses) {
       this.courses = this.courses.filter( c => c.id !== course.id)
     },
     showDialog() {
@@ -50,12 +43,12 @@ export default {
 
   },
   mounted(){
-    // this.fetchCourses();
+    this.fetchCourses();
   },
   computed: {
     ...mapState({
-      // courses: state => state.course.courses,
-      isLoading: state => state.course.isLoading
+      courses: state => state.courses.courses,
+      isLoading: state => state.courses.isLoading
     })
   }
 }

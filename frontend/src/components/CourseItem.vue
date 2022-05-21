@@ -2,9 +2,9 @@
   <div class="wrapper">
   <div class="course">
     <div class="course__info">
-      <h1 class="course__name">{{course.name}}</h1>
+      <h1 class="course__name">{{courses.name}}</h1>
       <p class="course__description">
-        {{course.description}}
+        {{courses.description}}
       </p>
       <h2 class="course__professors">Professors</h2>
       <p class="course__professors-list">
@@ -12,7 +12,7 @@
       </p>
     </div>
     <div class="course__title-wrapper">
-      <h1 class="course__title">{{ course.name }}</h1>
+      <h1 class="course__title">{{ courses.name }}</h1>
     </div>
   </div>
   </div>

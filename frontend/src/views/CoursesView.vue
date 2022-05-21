@@ -42,11 +42,11 @@ export default {
     }
   },
   methods: {
-    createCourse(course) {
+    createCourse(courses) {
       this.courses.push(course);
       this.dialogVisisble = false;
     },
-    removeCourse(course) {
+    removeCourse(courses) {
       this.courses = this.courses.filter( c => c.id !== course.id)
     },
     showDialog() {

@@ -27,14 +27,14 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchCourses: 'course/fetchCourses'
+      fetchCourses: 'courses/fetchCourses'
     }),
 
-    createCourse(course) {
+    createCourse(courses) {
       this.courses.push(course);
       this.dialogVisisble = false;
     },
-    removeCourse(course) {
+    removeCourse(courses) {
       this.courses = this.courses.filter( c => c.id !== course.id)
     },
     showDialog() {
@@ -47,8 +47,8 @@ export default {
   },
   computed: {
     ...mapState({
-      courses: state => state.course.courses,
-      isLoading: state => state.course.isLoading
+      courses: state => state.courses.courses,
+      isLoading: state => state.courses.isLoading
     })
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div v-if="courses.length > 0">
     <course-item
-        v-for="course in courses"
+        v-for="courses in courses"
         :course="course"
         :key="course.id"
         @remove="$emit('remove', course)"

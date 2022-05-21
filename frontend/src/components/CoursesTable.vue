@@ -40,13 +40,13 @@
     </course-form>
   </side-form>
   <div class="courses-table" v-if="courses.length > 0"
-       v-for="course in courses"
+       v-for="courses in courses"
        :course="course"
        :key="course.id">
-    <a class="course-id">{{ course.id }}</a>
-    <a class="course-name">{{ course.name }}</a>
-    <a class="course-desc">{{ course.description }}</a>
-    <a class="course-professors">{{ course.professors }}</a>
+    <a class="course-id">{{ courses.id }}</a>
+    <a class="course-name">{{ courses.name }}</a>
+    <a class="course-desc">{{ courses.description }}</a>
+    <a class="course-professors">{{ courses.professors }}</a>
     <button
         class="course-edit"
         @click="showEdit"
@@ -85,13 +85,13 @@ export default {
     showEdit() {
       this.editVisible = true;
     },
-    createCourse(course) {
+    createCourse(courses) {
 
     },
-    updateCourse(course) {
+    updateCourse(courses) {
 
     },
-    deleteCourse(course) {
+    deleteCourse(courses) {
 
     }
   }

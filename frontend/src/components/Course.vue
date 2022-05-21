@@ -1,8 +1,8 @@
 <template>
   <div>
     <div>
-      <div><strong>Name: </strong>{{ course.name }}</div>
-      <div><strong>Desc: </strong>{{ course.description }}</div>
+      <div><strong>Name: </strong>{{ courses.name }}</div>
+      <div><strong>Desc: </strong>{{ courses.description }}</div>
     </div>
     <div>
       <custom-button

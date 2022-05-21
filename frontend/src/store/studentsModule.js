@@ -1,26 +1,26 @@
 import axios from "axios";
 
-export const courseModule = {
+export const studentsModule = {
     state: () => ({
-        courses: [],
+        students: [],
         isLoading: false
     }),
     getters: {
     },
     mutations: {
-        setCourses(state, courses) {
-            state.courses = courses;
+        setStudents(state, students) {
+            state.students = students;
         },
         setLoading(state, isLoading) {
             state.isLoading = isLoading;
         }
     },
     actions: {
-        async fetchCourses({state, commit}) {
+        async fetchStudents({state, commit}) {
             try {
                 commit('setLoading', true);
-                const response = await axios.get('/api/courses');
-                commit('setCourses', response.data);
+                const response = await axios.get('/api/students');
+                commit('setStudents', response.data);
             } catch (e) {
                 alert('error')
             } finally {
