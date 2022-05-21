@@ -23,8 +23,9 @@
 
 <script>
 
-import CustomInput from "@/components/UI/CustomInput";
+import CustomInput from "@/components/CustomInput";
 export default {
+  name: 'CourseForm',
   components: {CustomInput},
   data() {
     return {

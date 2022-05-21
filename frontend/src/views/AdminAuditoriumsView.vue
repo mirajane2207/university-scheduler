@@ -12,14 +12,11 @@
 </template>
 
 <script>
-import CourseForm from "@/components/CourseForm";
-import CoursesList from "@/components/CoursesTable";
+
 import {mapState, mapActions} from 'vuex';
 
 export default {
-  components: {
-    CourseForm, CoursesList
-  },
+
   data() {
     return {
       editVisisble: false,

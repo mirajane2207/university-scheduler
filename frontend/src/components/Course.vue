@@ -15,8 +15,9 @@
 
 <script>
 
-import CustomButton from "@/components/UI/CustomButton";
+import CustomButton from "@/components/CustomButton";
 export default {
+  name: 'Course',
   components: {CustomButton},
   props: {
     course: {

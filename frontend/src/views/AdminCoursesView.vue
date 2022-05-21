@@ -1,10 +1,10 @@
 <template>
   <div class="course-table-view">
-    <courses-list
+    <courses-table
         :courses="courses"
-        @remove="removeCourse"
         v-if="!isLoading"
     />
+
     <div v-else>
       Loading data..
     </div>
@@ -12,17 +12,14 @@
 </template>
 
 <script>
-import CourseForm from "@/components/CourseForm";
-import CoursesList from "@/components/CoursesTable";
+
 import {mapState, mapActions} from 'vuex';
 
+
 export default {
-  components: {
-    CourseForm, CoursesList
-  },
+
   data() {
     return {
-      editVisisble: false,
     }
   },
   methods: {
@@ -30,7 +27,7 @@ export default {
       fetchCourses: 'courses/fetchCourses'
     }),
 
-    createCourse(courses) {
+    createCourse(course) {
       this.courses.push(course);
       this.dialogVisisble = false;
     },

@@ -1,7 +1,7 @@
 <template>
   <div v-if="courses.length > 0">
     <course-item
-        v-for="courses in courses"
+        v-for="course in courses"
         :course="course"
         :key="course.id"
         @remove="$emit('remove', course)"
@@ -13,10 +13,9 @@
 </template>
 
 <script>
-import CourseItem from "@/components/CourseItem";
 
 export default {
-  components: {CourseItem},
+  name: 'CoursesListItems',
   props: {
     courses: {
       type: Array,

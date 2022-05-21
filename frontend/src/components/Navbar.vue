@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header__logo">
-      <a href="/" class="header__logo-link">
+      <a href="/public" class="header__logo-link">
         <img src="@/assets/svg/logo.svg" alt="NAU Scheduler" class="header__logo-pic">
       </a>
     </div>

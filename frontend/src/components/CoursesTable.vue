@@ -1,70 +1,28 @@
 <template>
+  <custom-table :items="courses">
+    <template v-slot:table-title>
+      <h1>Courses</h1>
 
-  <h1 class="table-title">Courses</h1>
-  <div class="courses-table-headers">
-    <a class="course-id">ID</a>
-    <a class="course-name">Name</a>
-    <a class="course-desc">Description</a>
-    <a class="course-professors">Professors</a>
-    <custom-button
-        class="course-create"
-        @click="showCreate"
-    >Create
-    </custom-button>
-    <side-form v-model:show="createVisible">
-      <course-form>
-        <div class="form-btns">
-          <custom-button
-              class="course-update"
-              @click="updateCourse"
-          >Create
-          </custom-button>
-        </div>
-      </course-form>
-    </side-form>
-  </div>
-  <side-form v-model:show="editVisible">
-    <course-form>
-      <div class="form-btns">
-        <custom-button
-            class="course-update"
-            @click="updateCourse"
-        >Save Changes
-        </custom-button>
-        <custom-button
-            class="course-delete"
-            @click="deleteCourse"
-        >Delete
-        </custom-button>
-      </div>
-    </course-form>
-  </side-form>
-  <div class="courses-table" v-if="courses.length > 0"
-       v-for="courses in courses"
-       :course="course"
-       :key="course.id">
-    <a class="course-id">{{ courses.id }}</a>
-    <a class="course-name">{{ courses.name }}</a>
-    <a class="course-desc">{{ courses.description }}</a>
-    <a class="course-professors">{{ courses.professors }}</a>
-    <button
-        class="course-edit"
-        @click="showEdit"
-    >Edit
-    </button>
-  </div>
-  <h2 v-else>
-    Courses List is empty
-  </h2>
+    </template >
+    <template v-slot:table-header>
+      <a  class="course-desc">Description</a>
+      <a  class="course-professors">Professors</a>
+    </template>
+    <template #item="{ description, professors}">
+      <a  class="course-desc">{{ description }}</a>
+      <a  class="course-professors">{{ professors }}</a>
+    </template>
+  </custom-table>
 </template>
 
 <script>
 import Course from "@/components/Course";
-import CustomButton from "@/components/UI/CustomButton";
+import CustomButton from "@/components/CustomButton";
 import CourseForm from "@/components/CourseForm";
-import SideForm from "@/components/UI/SideForm";
+import SideForm from "@/components/SideForm";
 
 export default {
+  name: 'CoursesTable',
   components: {CustomButton, Course, CourseForm, SideForm},
   props: {
     courses: {
@@ -132,16 +90,6 @@ export default {
 
 }
 
-.course-id {
-  grid-column: span 1;
-}
-
-.course-name {
-  grid-column: span 2;
-  max-height: 24px;
-  overflow: hidden;
-}
-
 .course-desc {
   grid-column: span 3;
   max-height: 24px;
@@ -154,9 +102,7 @@ export default {
   overflow: hidden;
 }
 
-.course-create {
-  grid-column: span 2;
-}
+
 
 .course-edit {
   border: 0;
