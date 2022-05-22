@@ -43,11 +43,11 @@ export default {
 
   },
   mounted(){
-    // this.fetchCourses();
+    this.fetchCourses();
   },
   computed: {
     ...mapState({
-      // courses: state => state.courses.courses,
+      courses: state => state.courses.courses,
       isLoading: state => state.courses.isLoading
     })
   }

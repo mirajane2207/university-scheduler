@@ -1,8 +1,7 @@
 <template>
-  <div class="course-table-view">
-    <courses-list
-        :courses="courses"
-        @remove="removeCourse"
+  <div class="lecture-table-view">
+    <lectures-table
+        :lectures="lectures"
         v-if="!isLoading"
     />
     <div v-else>
@@ -12,50 +11,48 @@
 </template>
 
 <script>
-import CourseForm from "@/components/CourseInfo";
-import CoursesList from "@/components/CoursesTable";
 import {mapState, mapActions} from 'vuex';
 
 export default {
-  components: {
-    CourseForm, CoursesList
-  },
-  data() {
-    return {
-      editVisisble: false,
-    }
-  },
+
+  // data() {
+  //   return {
+  //     lectures: [
+  //       {id:'1', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+  //       {id:'2', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+  //       {id:'3', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+  //       {id:'4', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+  //       {id:'5', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+  //       {id:'6', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+  //     ]
+  //   }
+  // },
   methods: {
     ...mapActions({
-      fetchCourses: 'courses/fetchCourses'
+      fetchLectures: 'lectures/fetchLectures'
     }),
 
-    createCourse(courses) {
-      this.courses.push(course);
-      this.dialogVisisble = false;
+    createLecture(lecture) {
+      this.lectures.push(lecture);
     },
-    removeCourse(courses) {
-      this.courses = this.courses.filter( c => c.id !== course.id)
-    },
-    showDialog() {
-      this.e = true;
+    removeLecture(lectures) {
+      this.lectures = this.lectures.filter( c => c.id !== lecture.id)
     }
-
   },
   mounted(){
-    this.fetchCourses();
+    this.fetchLectures();
   },
   computed: {
     ...mapState({
-      courses: state => state.courses.courses,
-      isLoading: state => state.courses.isLoading
+      lectures: state => state.lectures.lectures,
+      isLoading: state => state.lectures.isLoading
     })
   }
 }
 </script>
 
 <style>
-.course-table-view {
+.lecture-table-view {
   padding: 40px;
 }
 </style>

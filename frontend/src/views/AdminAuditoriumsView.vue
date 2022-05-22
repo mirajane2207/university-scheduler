@@ -14,36 +14,24 @@
 import {mapState, mapActions} from 'vuex';
 
 export default {
-
-  data() {
-    return {
-      auditoriums: [
-        {id:'1', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
-        {id:'2', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
-        {id:'3', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
-        {id:'4', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
-        {id:'5', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
-      ]
-    }
-  },
   methods: {
     ...mapActions({
-      fetchCourses: 'auditoriums/fetchCourses'
+      fetchAuditoriums: 'auditoriums/fetchAuditoriums'
     }),
 
-    createCourse(auditorium) {
+    createAuditorium(auditorium) {
       this.auditoriums.push(auditorium);
     },
-    removeCourse(auditoriums) {
+    removeAuditorium(auditoriums) {
       this.auditoriums = this.auditoriums.filter( c => c.id !== auditorium.id)
     }
   },
   mounted(){
-    // this.fetchCourses();
+    this.fetchAuditoriums();
   },
   computed: {
     ...mapState({
-      // auditoriums: state => state.auditoriums.auditoriums,
+      auditoriums: state => state.auditoriums.auditoriums,
       isLoading: state => state.auditoriums.isLoading
     })
   }

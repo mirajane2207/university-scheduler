@@ -15,20 +15,20 @@ import {mapState, mapActions} from 'vuex';
 
 export default {
 
-  data() {
-    return {
-      students: [
-        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
-        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
-        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
-        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
-        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
-      ]
-    }
-  },
+  // data() {
+  //   return {
+  //     students: [
+  //       {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+  //       {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+  //       {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+  //       {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+  //       {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+  //     ]
+  //   }
+  // },
   methods: {
     ...mapActions({
-      fetchCourses: 'students/fetchCourses'
+      fetchStudents: 'students/fetchStudents'
     }),
 
     createCourse(student) {
@@ -39,11 +39,11 @@ export default {
     }
   },
   mounted() {
-    // this.fetchCourses();
+    this.fetchStudents();
   },
   computed: {
     ...mapState({
-      // students: state => state.students.students,
+      students: state => state.students.students,
       isLoading: state => state.students.isLoading
     })
   }

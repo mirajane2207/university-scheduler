@@ -28,22 +28,22 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchCourses: 'professors/fetchCourses'
+      fetchProfessors: 'professors/fetchProfessors'
     }),
 
-    createCourse(professor) {
+    createProfessor(professor) {
       this.professors.push(professor);
     },
-    removeCourse(professors) {
+    removeProfessor(professors) {
       this.professors = this.professors.filter(c => c.id !== professor.id)
     }
   },
   mounted() {
-    // this.fetchCourses();
+    this.fetchProfessors();
   },
   computed: {
     ...mapState({
-      // professors: state => state.professors.professors,
+      professors: state => state.professors.professors,
       isLoading: state => state.professors.isLoading
     })
   }

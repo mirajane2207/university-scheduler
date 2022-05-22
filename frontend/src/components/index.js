@@ -18,6 +18,10 @@ import StudentsTable from "@/components/StudentsTable";
 import StudentInfo from "@/components/StudentInfo";
 import ProfessorsTable from "@/components/ProfessorsTable";
 import ProfessorInfo from "@/components/ProfessorInfo";
+import CustomSelect from "@/components/CustomSelect";
+import LecturesTable from "@/components/LecturesTable";
+import LectureUpdateForm from "@/components/LectureUpdateForm";
+import LectureForm from "@/components/LectureForm";
 
 export default [
     AuditoriumsTable,
@@ -30,9 +34,13 @@ export default [
     CustomButton,
     CustomDialog,
     CustomInput,
+    CustomSelect,
     CustomTable,
     GroupInfo,
     GroupsTable,
+    LectureForm,
+    LectureUpdateForm,
+    LecturesTable,
     LoginFrom,
     Navbar,
     ProfessorInfo,
