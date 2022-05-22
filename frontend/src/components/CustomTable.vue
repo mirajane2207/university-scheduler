@@ -70,6 +70,12 @@ export default {
 
 }
 
+.custom-table:only-child{
+  display: grid;
+  max-height: 24px;
+  overflow: hidden;
+
+}
 .custom-table-headers {
   padding-bottom: 10px;
   margin-bottom: 20px;
@@ -84,7 +90,7 @@ export default {
 }
 
 .custom-table__name {
-  grid-column: span 3;
+  grid-column: span 2;
   max-height: 24px;
   overflow: hidden;
 }

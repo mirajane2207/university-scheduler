@@ -1,8 +1,7 @@
 <template>
-  <div class="course-table-view">
-    <courses-list
-        :courses="courses"
-        @remove="removeCourse"
+  <div className="student-table-view">
+    <students-table
+        :students="students"
         v-if="!isLoading"
     />
     <div v-else>
@@ -12,50 +11,47 @@
 </template>
 
 <script>
-import CourseForm from "@/components/CourseInfo";
-import CoursesList from "@/components/CoursesTable";
 import {mapState, mapActions} from 'vuex';
 
 export default {
-  components: {
-    CourseForm, CoursesList
-  },
+
   data() {
     return {
-      editVisisble: false,
+      students: [
+        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+      ]
     }
   },
   methods: {
     ...mapActions({
-      fetchCourses: 'courses/fetchCourses'
+      fetchCourses: 'students/fetchCourses'
     }),
 
-    createCourse(courses) {
-      this.courses.push(course);
-      this.dialogVisisble = false;
+    createCourse(student) {
+      this.students.push(student);
     },
-    removeCourse(courses) {
-      this.courses = this.courses.filter( c => c.id !== course.id)
-    },
-    showDialog() {
-      this.e = true;
+    removeCourse(students) {
+      this.students = this.students.filter(c => c.id !== student.id)
     }
-
   },
-  mounted(){
-    this.fetchCourses();
+  mounted() {
+    // this.fetchCourses();
   },
   computed: {
     ...mapState({
-      courses: state => state.courses.courses,
-      isLoading: state => state.courses.isLoading
+      // students: state => state.students.students,
+      isLoading: state => state.students.isLoading
     })
   }
 }
 </script>
 
 <style>
-.course-table-view {
+.student-table-view {
   padding: 40px;
 }
 </style>

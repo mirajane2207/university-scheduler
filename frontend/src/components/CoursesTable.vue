@@ -77,7 +77,7 @@ export default {
 }
 
 .course-professors {
-  grid-column: span 3;
+  grid-column: span 4;
   max-height: 24px;
   overflow: hidden;
 }

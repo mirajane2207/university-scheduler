@@ -3,7 +3,6 @@ import CustomInput from "@/components/CustomInput";
 import CustomDialog from "@/components/CustomDialog";
 import Navbar from "@/components/Navbar";
 import Course from "@/components/Course";
-import CourseForm from "@/components/CourseInfo";
 import CourseItem from "@/components/CourseItem";
 import CoursesListItems from "@/components/CoursesListItems";
 import CoursesTable from "@/components/CoursesTable";
@@ -15,6 +14,8 @@ import UpdateForm from "@/components/UpdateForm";
 import CourseInfo from "@/components/CourseInfo";
 import GroupsTable from "@/components/GroupsTable";
 import GroupInfo from "@/components/GroupInfo";
+import StudentsTable from "@/components/StudentsTable";
+import StudentInfo from "@/components/StudentInfo";
 
 export default [
     AuditoriumsTable,
@@ -32,5 +33,7 @@ export default [
     GroupsTable,
     LoginFrom,
     Navbar,
+    StudentInfo,
+    StudentsTable,
     UpdateForm
 ]
