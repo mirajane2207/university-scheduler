@@ -16,6 +16,8 @@ import GroupsTable from "@/components/GroupsTable";
 import GroupInfo from "@/components/GroupInfo";
 import StudentsTable from "@/components/StudentsTable";
 import StudentInfo from "@/components/StudentInfo";
+import ProfessorsTable from "@/components/ProfessorsTable";
+import ProfessorInfo from "@/components/ProfessorInfo";
 
 export default [
     AuditoriumsTable,
@@ -33,6 +35,8 @@ export default [
     GroupsTable,
     LoginFrom,
     Navbar,
+    ProfessorInfo,
+    ProfessorsTable,
     StudentInfo,
     StudentsTable,
     UpdateForm

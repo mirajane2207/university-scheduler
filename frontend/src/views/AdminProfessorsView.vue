@@ -1,8 +1,7 @@
 <template>
-  <div class="course-table-view">
-    <courses-list
-        :courses="courses"
-        @remove="removeCourse"
+  <div className="professor-table-view">
+    <professors-table
+        :professors="professors"
         v-if="!isLoading"
     />
     <div v-else>
@@ -12,50 +11,47 @@
 </template>
 
 <script>
-import CourseForm from "@/components/CourseInfo";
-import CoursesList from "@/components/CoursesTable";
 import {mapState, mapActions} from 'vuex';
 
 export default {
-  components: {
-    CourseForm, CoursesList
-  },
+
   data() {
     return {
-      editVisisble: false,
+      professors: [
+        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+      ]
     }
   },
   methods: {
     ...mapActions({
-      fetchCourses: 'courses/fetchCourses'
+      fetchCourses: 'professors/fetchCourses'
     }),
 
-    createCourse(courses) {
-      this.courses.push(course);
-      this.dialogVisisble = false;
+    createCourse(professor) {
+      this.professors.push(professor);
     },
-    removeCourse(courses) {
-      this.courses = this.courses.filter( c => c.id !== course.id)
-    },
-    showDialog() {
-      this.e = true;
+    removeCourse(professors) {
+      this.professors = this.professors.filter(c => c.id !== professor.id)
     }
-
   },
-  mounted(){
-    this.fetchCourses();
+  mounted() {
+    // this.fetchCourses();
   },
   computed: {
     ...mapState({
-      courses: state => state.courses.courses,
-      isLoading: state => state.courses.isLoading
+      // professors: state => state.professors.professors,
+      isLoading: state => state.professors.isLoading
     })
   }
 }
 </script>
 
 <style>
-.course-table-view {
+.professor-table-view {
   padding: 40px;
 }
 </style>
