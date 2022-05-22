@@ -1,15 +1,7 @@
 <template>
-  <form @submit.prevent class="course-form">
-    <a class="course-form__id">ID</a>
-
-    <custom-input type="text" >
-      <label class="label">Name</label>
-    </custom-input>
-
-    <custom-input type="text">
+    <custom-input>
       <label class="label">Description</label>
     </custom-input>
-
     <label for="professors"  class="label" >Professors</label>
     <ul name="professors">
       <li>dldsjkljdk</li>
@@ -17,15 +9,13 @@
       <li>dldsjkljdk</li>
       <li>dldsjkljdk</li>
     </ul>
-    <slot></slot>
-  </form>
 </template>
 
 <script>
 
 import CustomInput from "@/components/CustomInput";
 export default {
-  name: 'CourseForm',
+  name: 'CourseInfo',
   components: {CustomInput},
   data() {
     return {

@@ -1,8 +1,7 @@
 <template>
-  <div class="course-table-view">
-    <courses-list
-        :courses="courses"
-        @remove="removeCourse"
+  <div class="group-table-view">
+    <groups-table
+        :groups="groups"
         v-if="!isLoading"
     />
     <div v-else>
@@ -12,50 +11,47 @@
 </template>
 
 <script>
-import CourseForm from "@/components/CourseForm";
-import CoursesList from "@/components/CoursesTable";
 import {mapState, mapActions} from 'vuex';
 
 export default {
-  components: {
-    CourseForm, CoursesList
-  },
+
   data() {
     return {
-      editVisisble: false,
+      groups: [
+        {id:'1', name:'english', description: 'fhsjkfchnskdcks', students: 'dfvkldsvmcksdmck'},
+        {id:'2', name:'english', description: 'fhsjkfchnskdcks', students: 'dfvkldsvmcksdmck'},
+        {id:'3', name:'english', description: 'fhsjkfchnskdcks', students: 'dfvkldsvmcksdmck'},
+        {id:'4', name:'english', description: 'fhsjkfchnskdcks', students: 'dfvkldsvmcksdmck'},
+        {id:'5', name:'english', description: 'fhsjkfchnskdcks', students: 'dfvkldsvmcksdmck'},
+      ]
     }
   },
   methods: {
     ...mapActions({
-      fetchCourses: 'courses/fetchCourses'
+      fetchCourses: 'groups/fetchCourses'
     }),
 
-    createCourse(courses) {
-      this.courses.push(course);
-      this.dialogVisisble = false;
+    createCourse(group) {
+      this.groups.push(group);
     },
-    removeCourse(courses) {
-      this.courses = this.courses.filter( c => c.id !== course.id)
-    },
-    showDialog() {
-      this.e = true;
+    removeCourse(groups) {
+      this.groups = this.groups.filter( c => c.id !== group.id)
     }
-
   },
   mounted(){
-    this.fetchCourses();
+    // this.fetchCourses();
   },
   computed: {
     ...mapState({
-      courses: state => state.courses.courses,
-      isLoading: state => state.courses.isLoading
+      // groups: state => state.groups.groups,
+      isLoading: state => state.groups.isLoading
     })
   }
 }
 </script>
 
 <style>
-.course-table-view {
+.group-table-view {
   padding: 40px;
 }
 </style>

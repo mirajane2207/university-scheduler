@@ -1,23 +1,21 @@
 <template>
-  <custom-table :items="courses">
+  <custom-table :items="groups">
     <template #table-title>
-      <h1 class="table-title">Courses</h1>
+      <h1 class="table-title">Groups</h1>
     </template >
     <template #table-header>
-      <a  class="group-students">Description</a>
-      <a  class="course-professors">Professors</a>
+      <a  class="group-students">Students</a>
     </template>
     <template #create-form>
-      <course-info>
-      </course-info>
+      <group-info>
+      </group-info>
     </template>
     <template #update-form>
-      <course-info>
-      </course-info>
+      <group-info>
+      </group-info>
     </template>
-    <template #item="{ description, professors}">
-      <a  class="group-students">{{ description }}</a>
-      <a  class="course-professors">{{ professors }}</a>
+    <template #item="{students}">
+      <a  class="group-students">{{ students }}</a>
     </template>
   </custom-table>
 </template>
@@ -25,9 +23,9 @@
 <script>
 
 export default {
-  name: 'CoursesTable',
+  name: 'GroupsTable',
   props: {
-    courses: {
+    groups: {
       type: Array,
       required: true
     }
@@ -45,13 +43,13 @@ export default {
     showEdit() {
       this.editVisible = true;
     },
-    createCourse(courses) {
+    createCourse(auditoriums) {
 
     },
-    updateCourse(courses) {
+    updateCourse(auditoriums) {
 
     },
-    deleteCourse(courses) {
+    deleteCourse(auditoriums) {
 
     }
   }
@@ -71,21 +69,6 @@ export default {
 }
 
 .group-students {
-  grid-column: span 3;
-  max-height: 24px;
-  overflow: hidden;
+    grid-column: span 6;
 }
-
-.course-professors {
-  grid-column: span 3;
-  max-height: 24px;
-  overflow: hidden;
-}
-
-.form-btns {
-  margin-top: 30px;
-  display: flex;
-
-}
-
 </style>

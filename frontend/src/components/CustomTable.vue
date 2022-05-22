@@ -9,13 +9,13 @@
         @click="showCreate"
     >Create
     </custom-button>
-    <side-form v-model:show="createVisible">
+    <create-form v-model:show="createVisible">
       <slot name="create-form"></slot>
-    </side-form>
+    </create-form>
   </div>
-  <side-form v-model:show="editVisible">
+  <update-form v-model:show="editVisible">
     <slot name="update-form"></slot>
-  </side-form>
+  </update-form>
   <div class="custom-table" v-if="items.length > 0"
        v-for="item in items"
        :item="item"
@@ -24,7 +24,7 @@
     <a class="custom-table__name">{{ item.name }}</a>
     <slot name="item" v-bind="item"></slot>
     <button
-        class="table-edit"
+        class="table-edit-btn"
         @click="showEdit"
     >Edit
     </button>
@@ -35,14 +35,10 @@
 </template>
 
 <script>
-import Course from "@/components/Course";
-import CustomButton from "@/components/CustomButton";
-import CourseForm from "@/components/CourseForm";
-import SideForm from "@/components/SideForm";
-
+import UpdateForm from "@/components/UpdateForm";
 export default {
   name: 'CustomTable',
-  components: {CustomButton, Course, CourseForm, SideForm},
+  components: {UpdateForm},
   props: {
     items: {
       type: Array,
@@ -94,14 +90,16 @@ export default {
 }
 
 .table-create-btn {
-  grid-column: span 2;
+  grid-column-start: 11;
+  grid-column-end: 13;
 }
 
-.table-edit {
+.table-edit-btn {
+  grid-column-start: 11;
+  grid-column-end: 13;
   border: 0;
   padding: 0;
   background: transparent;
-  grid-column: span 2;
   color: #8AC1D9;
   font-family: 'Montserrat';
   font-size: 20px;

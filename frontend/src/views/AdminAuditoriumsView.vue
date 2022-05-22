@@ -1,8 +1,7 @@
 <template>
-  <div class="course-table-view">
-    <courses-list
-        :courses="courses"
-        @remove="removeCourse"
+  <div class="auditorium-table-view">
+    <auditoriums-table
+        :auditoriums="auditoriums"
         v-if="!isLoading"
     />
     <div v-else>
@@ -12,47 +11,47 @@
 </template>
 
 <script>
-
 import {mapState, mapActions} from 'vuex';
 
 export default {
 
   data() {
     return {
-      editVisisble: false,
+      auditoriums: [
+        {id:'1', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+        {id:'2', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+        {id:'3', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+        {id:'4', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+        {id:'5', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+      ]
     }
   },
   methods: {
     ...mapActions({
-      fetchCourses: 'courses/fetchCourses'
+      fetchCourses: 'auditoriums/fetchCourses'
     }),
 
-    createCourse(courses) {
-      this.courses.push(course);
-      this.dialogVisisble = false;
+    createCourse(auditorium) {
+      this.auditoriums.push(auditorium);
     },
-    removeCourse(courses) {
-      this.courses = this.courses.filter( c => c.id !== course.id)
-    },
-    showDialog() {
-      this.e = true;
+    removeCourse(auditoriums) {
+      this.auditoriums = this.auditoriums.filter( c => c.id !== auditorium.id)
     }
-
   },
   mounted(){
-    this.fetchCourses();
+    // this.fetchCourses();
   },
   computed: {
     ...mapState({
-      courses: state => state.courses.courses,
-      isLoading: state => state.courses.isLoading
+      // auditoriums: state => state.auditoriums.auditoriums,
+      isLoading: state => state.auditoriums.isLoading
     })
   }
 }
 </script>
 
 <style>
-.course-table-view {
+.auditorium-table-view {
   padding: 40px;
 }
 </style>

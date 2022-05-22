@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import CourseForm from "@/components/CourseForm";
+import CourseForm from "@/components/CourseInfo";
 import CoursesList from "@/components/CoursesTable";
 import axios from "axios"
 
