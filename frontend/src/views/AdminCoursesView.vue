@@ -4,7 +4,6 @@
         :courses="courses"
         v-if="!isLoading"
     />
-
     <div v-else>
       Loading data..
     </div>
@@ -12,14 +11,19 @@
 </template>
 
 <script>
-
 import {mapState, mapActions} from 'vuex';
-
 
 export default {
 
   data() {
     return {
+      courses: [
+        {id:'1', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+        {id:'2', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+        {id:'3', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+        {id:'4', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+        {id:'5', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+      ]
     }
   },
   methods: {
@@ -29,22 +33,17 @@ export default {
 
     createCourse(course) {
       this.courses.push(course);
-      this.dialogVisisble = false;
     },
     removeCourse(courses) {
       this.courses = this.courses.filter( c => c.id !== course.id)
-    },
-    showDialog() {
-      this.e = true;
     }
-
   },
   mounted(){
-    this.fetchCourses();
+    // this.fetchCourses();
   },
   computed: {
     ...mapState({
-      courses: state => state.courses.courses,
+      // courses: state => state.courses.courses,
       isLoading: state => state.courses.isLoading
     })
   }

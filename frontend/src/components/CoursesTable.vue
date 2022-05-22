@@ -1,12 +1,38 @@
 <template>
   <custom-table :items="courses">
-    <template v-slot:table-title>
-      <h1>Courses</h1>
-
+    <template #table-title>
+      <h1 class="table-title">Courses</h1>
     </template >
-    <template v-slot:table-header>
+    <template #table-header>
       <a  class="course-desc">Description</a>
       <a  class="course-professors">Professors</a>
+    </template>
+    <template #create-form>
+      <course-form>
+        <div class="form-btns">
+          <custom-button
+              class="table-update-btn"
+              @click="createCourse"
+          >Create
+          </custom-button>
+        </div>
+      </course-form>
+    </template>
+    <template #update-form>
+      <course-form>
+        <div class="form-btns">
+          <custom-button
+              class="table-update-btn"
+              @click="updateCourse"
+          >Save Changes
+          </custom-button>
+          <custom-button
+              class="table-delete-btn"
+              @click="deleteCourse"
+          >Delete
+          </custom-button>
+        </div>
+      </course-form>
     </template>
     <template #item="{ description, professors}">
       <a  class="course-desc">{{ description }}</a>
@@ -16,14 +42,9 @@
 </template>
 
 <script>
-import Course from "@/components/Course";
-import CustomButton from "@/components/CustomButton";
-import CourseForm from "@/components/CourseForm";
-import SideForm from "@/components/SideForm";
 
 export default {
   name: 'CoursesTable',
-  components: {CustomButton, Course, CourseForm, SideForm},
   props: {
     courses: {
       type: Array,
@@ -68,28 +89,6 @@ export default {
   color: #8AC1D9;
 }
 
-.courses-table {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 10px;
-
-}
-
-.courses-table-headers {
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 10px;
-  border-bottom: 4px solid #8AC1D9;
-  font-family: 'Open Sans';
-  font-weight: 600;
-  /* light gray */
-
-  color: #E0E0E0;
-
-}
-
 .course-desc {
   grid-column: span 3;
   max-height: 24px;
@@ -97,23 +96,9 @@ export default {
 }
 
 .course-professors {
-  grid-column: span 4;
+  grid-column: span 3;
   max-height: 24px;
   overflow: hidden;
-}
-
-
-
-.course-edit {
-  border: 0;
-  padding: 0;
-  background: transparent;
-  grid-column: span 2;
-  color: #8AC1D9;
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
 }
 
 .form-btns {
@@ -122,7 +107,7 @@ export default {
 
 }
 
-.course-update {
+.table-update-btn {
   padding: 10px;
   margin-right: 10px;
   background: #8AC1D9;
@@ -138,7 +123,7 @@ export default {
   color: #FFFFFF;
 }
 
-.course-delete {
+.table-delete-btn {
   padding: 10px;
 }
 </style>
