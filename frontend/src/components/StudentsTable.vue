@@ -19,7 +19,7 @@
     </template>
     <template #item="{ surname, group, email, courses }">
       <a  class="student-surname">{{ surname }}</a>
-      <a  class="student-group">{{ group }}</a>
+      <a  class="student-group">{{ group.name }}</a>
       <a  class="student-email">{{ email }}</a>
       <a  class="student-courses">{{ courses }}</a>
     </template>

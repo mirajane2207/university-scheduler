@@ -1,7 +1,7 @@
 <template>
   <custom-table :items="professors">
     <template #table-title>
-      <h1 class="table-title">Students</h1>
+      <h1 class="table-title">Professors</h1>
     </template >
     <template #table-header>
       <a  class="professor-surname">Surname</a>

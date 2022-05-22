@@ -53,29 +53,4 @@ export default {
   text-transform: uppercase;
   color: #8AC1D9;
 }
-
-.form-btns {
-  margin-top: 30px;
-  display: flex;
-
-}
-
-.table-update-btn {
-  padding: 10px;
-  margin-right: 10px;
-  background: #8AC1D9;
-  border-radius: 8px;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 26px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-}
-
-.table-delete-btn {
-  padding: 10px;
-}
 </style>

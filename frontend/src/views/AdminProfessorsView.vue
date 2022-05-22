@@ -14,18 +14,18 @@
 import {mapState, mapActions} from 'vuex';
 
 export default {
-
-  data() {
-    return {
-      professors: [
-        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
-        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
-        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
-        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
-        {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
-      ]
-    }
-  },
+  //
+  // data() {
+  //   return {
+  //     professors: [
+  //       {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+  //       {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+  //       {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+  //       {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+  //       {id: '1', name: 'english', surname: 'fhsjkfchnskdcks', group: 'dfvkldsv', email: 'fvdfdcdsc', courses: "dfvercdedc" },
+  //     ]
+  //   }
+  // },
   methods: {
     ...mapActions({
       fetchProfessors: 'professors/fetchProfessors'

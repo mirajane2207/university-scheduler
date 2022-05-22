@@ -3,14 +3,12 @@
     <div @click.stop>
       <form @submit.prevent class="course-form">
         <a class="course-form__id">ID</a>
-
         <custom-select :items="weeks">Week</custom-select>
         <custom-select :items="lectureNumbers">Lecture</custom-select>
         <custom-select :items="auditoriums">Auditorium</custom-select>
         <custom-select :items="courses">Course</custom-select>
         <custom-select :items="professors">Professor</custom-select>
         <custom-select :items="groups">Group</custom-select>
-
         <slot></slot>
       </form>
     </div>
@@ -18,9 +16,10 @@
 </template>
 
 <script>
+import {mapActions, mapState} from "vuex";
+
 export default {
   name: "LectureForm",
-  components: {},
 
   props: {
     show: {
@@ -29,26 +28,48 @@ export default {
     }
   },
 
-  data() {
-    return {
-      courses: [
-        {id:'1', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
-        {id:'2', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
-        {id:'3', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
-        {id:'4', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
-        {id:'5', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
-      ]
-    }
-  },
+  // data() {
+  //   return {
+  //     courses: [
+  //       {id:'1', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+  //       {id:'2', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+  //       {id:'3', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+  //       {id:'4', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+  //       {id:'5', name:'english', description: 'fhsjkfchnskdcks', professors: 'dfvkldsvmcksdmck'},
+  //     ]
+  //   }
+  // },
 
   methods: {
-
+    ...mapActions({
+      fetchCourses: 'courses/fetchCourses',
+      fetchAuditoriums: 'auditoriums/fetchAuditoriums',
+      fetchProfessors: 'professors/fetchProfessors',
+      fetchGroups: 'groups/fetchGroups'
+    }),
     hideDialog() {
       this.$emit('update:show', false)
     },
     createItem() {
 
     }
+  },
+  mounted(){
+    this.fetchCourses();
+    this.fetchAuditoriums();
+    this.fetchProfessors();
+    this.fetchGroups();
+
+  },
+  computed: {
+    ...mapState({
+      courses: state => state.courses.courses,
+      auditoriums: state => state.auditoriums.auditoriums,
+      weeks: state => state.lectures.weeks,
+      lectureNumbers: state => state.lectures.lectureNumbers,
+      professors: state => state.professors.professors,
+      groups: state => state.groups.groups
+    })
   }
 }
 </script>
@@ -79,64 +100,7 @@ export default {
   font-size: 40px;
   line-height: 54px;
   text-transform: uppercase;
-
-  /* blue */
-
   color: #8AC1D9;
-}
-
-.label {
-  margin-top: 40px;
-  margin-bottom: 13px;
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 33px;
-
-  text-transform: uppercase;
-  color: #E0E0E0;
-}
-
-.form-btns {
-  margin-top: 30px;
-  display: flex;
-
-}
-
-.table-create-btn {
-  padding: 10px;
-  margin-right: 10px;
-  background: #8AC1D9;
-  border-radius: 8px;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 26px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-}
-
-.table-update-btn {
-  padding: 10px;
-  margin-right: 10px;
-  background: #8AC1D9;
-  border-radius: 8px;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 26px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-}
-
-.table-delete-btn {
-  text-transform: uppercase;
-  padding: 10px;
 }
 
 </style>

@@ -20,7 +20,6 @@ import ProfessorsTable from "@/components/ProfessorsTable";
 import ProfessorInfo from "@/components/ProfessorInfo";
 import CustomSelect from "@/components/CustomSelect";
 import LecturesTable from "@/components/LecturesTable";
-import LectureUpdateForm from "@/components/LectureUpdateForm";
 import LectureForm from "@/components/LectureForm";
 
 export default [
@@ -39,7 +38,6 @@ export default [
     GroupInfo,
     GroupsTable,
     LectureForm,
-    LectureUpdateForm,
     LecturesTable,
     LoginFrom,
     Navbar,

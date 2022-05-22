@@ -1,5 +1,5 @@
 <template>
-  <slot name="table-title"></slot>
+  <h1 class="table-title">Courses</h1>
   <div class="lecture-table-headers">
     <a class="lecture-table__id">ID</a>
     <a class="lecture-table__week">Week</a>
@@ -43,10 +43,10 @@
     <a class="lecture-table__id">{{ lecture.id }}</a>
     <a class="lecture-table__id">{{ lecture.week }}</a>
     <a class="lecture-table__lecture">{{ lecture.lecture }}</a>
-    <a class="lecture-table__auditorium">{{lecture.auditorium}}</a>
-    <a class="lecture-table__course">{{ lecture.course }}</a>
-    <a class="lecture-table__professor">{{ lecture.professor }}</a>
-    <a class="lecture-table__group">{{ lecture.group }}</a>
+    <a class="lecture-table__auditorium">{{lecture.auditorium.name}}</a>
+    <a class="lecture-table__course">{{ lecture.course.name}}</a>
+    <a class="lecture-table__professor">{{ lecture.professor.surname }} {{ lecture.professor.name}}</a>
+    <a class="lecture-table__group">{{ lecture.group.name }}</a>
     <button
         class="table-edit-btn"
         @click="showEdit"
@@ -59,12 +59,9 @@
 </template>
 
 <script>
-import UpdateForm from "@/components/UpdateForm";
-import LectureUpdateForm from "@/components/LectureUpdateForm";
-import LectureForm from "@/components/LectureForm";
+
 export default {
   name: 'LecturesTable',
-  components: {LectureForm, LectureUpdateForm, UpdateForm},
   props: {
     lectures: {
       type: Array,
@@ -77,14 +74,16 @@ export default {
       editVisible: false
     }
   },
+
   methods: {
+
     showCreate() {
       this.createVisible = true;
     },
     showEdit() {
       this.editVisible = true;
     }
-  }
+  },
 }
 </script>
 
@@ -116,14 +115,10 @@ export default {
 }
 
 .lecture-table__course {
-  grid-column: span 2;
+  grid-column: span 3;
 }
 
 .lecture-table__professor {
-  grid-column: span 2;
-}
-
-.lecture-table__group {
   grid-column: span 2;
 }
 
