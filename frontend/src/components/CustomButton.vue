@@ -18,6 +18,7 @@ export default {
   filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.1));
   backdrop-filter: blur(6px);
   border-radius: 8px;
+  text-transform: uppercase;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
