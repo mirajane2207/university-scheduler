@@ -1,8 +1,11 @@
 <template>
-  <div class="side-form" v-if="show" @click.stop="hideDialog">
+  <div class="side-form" v-if="show">
     <div @click.stop>
       <form @submit.prevent class="course-form">
-        <a class="course-form__id">Creation item</a>
+        <div class="title-wrapper">
+          <a class="course-form__id" >Creation item</a>
+          <a class="close" @click.stop="hideDialog">Close</a>
+        </div>
         <custom-input>
           <label class="label">Name</label>
         </custom-input>
@@ -41,6 +44,22 @@ export default {
 </script>
 
 <style scoped>
+.title-wrapper {
+  display: flex;
+}
+
+.close{
+  margin-top: 14px;
+  margin-left: 10px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #8AC1D9;
+}
+
+.close:hover {
+  text-decoration: underline;
+}
+
 .side-form {
   position: absolute;
   top: 0;

@@ -2,9 +2,10 @@
   <custom-input>
     <label class="label">Surname</label>
   </custom-input>
-  <custom-input>
-    <label class="label">Group</label>
-  </custom-input>
+  <custom-select
+      :items="groups">
+    Group
+  </custom-select>
   <custom-input>
     <label class="label">Email</label>
   </custom-input>
@@ -19,10 +20,10 @@
 
 <script>
 
-import CustomInput from "@/components/CustomInput";
+import {mapActions, mapState} from "vuex";
+
 export default {
   name: 'StudentInfo',
-  components: {CustomInput},
   data() {
     return {
       course: {
@@ -32,6 +33,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      fetchGroups: 'groups/fetchGroups'
+    }),
     createCourse() {
       this.course.id = Date.now();
       this.$emit('create', this.course);
@@ -40,6 +44,14 @@ export default {
         body: ''
       }
     }
+  },
+  mounted() {
+    this.fetchGroups();
+  },
+  computed: {
+    ...mapState({
+      groups: state => state.groups.groups
+    })
   }
 }
 </script>

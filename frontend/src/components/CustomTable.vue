@@ -1,5 +1,8 @@
 <template>
-  <slot name="table-title"></slot>
+  <div class="title-wrapper">
+    <slot name="table-title"></slot>
+    <router-link to="/admin" class="back-link">Back</router-link>
+  </div>
   <div class="custom-table-headers">
     <a class="custom-table__id">ID</a>
     <a class="custom-table__name">Name</a>
@@ -63,11 +66,26 @@ export default {
 </script>
 
 <style scoped>
+.title-wrapper {
+  display: flex;
+}
+
 .custom-table {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 10px;
 
+}
+
+.back-link{
+margin-top: 55px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #8AC1D9;
+}
+
+.back-link:hover{
+  text-decoration: underline;
 }
 
 .custom-table:only-child{
