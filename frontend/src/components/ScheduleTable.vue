@@ -7,10 +7,10 @@
     <div class="format">
       <a class="filter-label">Date Format</a>
       <input class="radio-option checked" type="radio" id="week"
-             name="dateFormat" value="week" checked  @click="setDateParam('Week')">
+             name="dateFormat" value="week" checked @click="setDateParam('Week')">
       <label for="week">Week</label>
       <input type="radio" id="date"
-             name="dateFormat" value="date" class="radio-option" @click="setColumnName('Date')">
+             name="dateFormat" value="date" class="radio-option" @click="setDateParam('Date')">
       <label for="date">Date</label>
     </div>
     <div class="format">
@@ -19,7 +19,7 @@
              name="timeFormat" value="time" class="radio-option">
       <label for="time">Time</label>
       <input class="radio-option" type="radio" id="lecture"
-             name="timeFormat" value="lecture" checked >
+             name="timeFormat" value="lecture" checked>
       <label for="week">Lecture Number</label>
     </div>
     <div class="format">
@@ -48,7 +48,8 @@
   </div>
 
   <div class="lecture-table-headers">
-    <a class="lecture-table__week" >{{ columnName }}</a>
+    <a class="lecture-table__week">{{ dateFormat }}</a>
+    <a class="lecture-table__week">Weekday</a>
     <a class="lecture-table__lecture">Lecture</a>
     <a class="lecture-table__group">Group</a>
     <a class="lecture-table__course">Course</a>
@@ -69,10 +70,14 @@
     <!--      </div>-->
     <!--    </lecture-form>-->
   </div>
+
   <div class="lecture-table" v-if="lectures.length > 0"
        v-for="lecture in lectures"
-       :key="lecture.id">
-    <a class="lecture-table__id">{{ date }}</a>
+       :key="lecture.id"
+  >
+    <a class="lecture-table__id" v-if="dateFormat==='Week'">{{ lecture.week }}</a>
+    <a class="lecture-table__id" v-else>{{ lecture.date}}</a>
+    <a class="lecture-table__lecture">{{ lecture.weekday}}</a>
     <a class="lecture-table__lecture">{{ lecture.lecture }}</a>
     <a class="lecture-table__group">{{ lecture.group }}</a>
     <a class="lecture-table__course">{{ lecture.course }}</a>
@@ -106,9 +111,9 @@ export default {
     return {
       createVisible: false,
       filterVisible: false,
-      columnName: 'Week',
-      date: '',
-      counter: 1
+      dateFormat: 'Week',
+      counter: 0,
+      dates: [],
     }
   },
 
@@ -119,20 +124,35 @@ export default {
     changeFilterVisible() {
       this.filterVisible = !this.filterVisible;
     },
-    setColumnName(name) {
-      this.columnName = name;
-      this.generateDate();
+    setDateParam(name) {
+      this.dateFormat = name;
     },
     generateDate() {
       const options = {month: 'long', day: 'numeric'};
-      this.date = new Date(Date.now() + this.counter).toLocaleDateString('en-US', options);
-      this.counter++;
+      const date = new Date(Date.now());
+      date.set
+
+      this.lectures[0].date = date.toLocaleDateString('en-US', options);
+      for (let i = 1; i < this.lectures.length;) {
+
+        if (this.lectures[i].weekday !== this.lectures[i - 1].weekday) {
+          date.setDate(date.getDate() + 1);
+        }
+
+        this.lectures[i].date = curDate.toLocaleDateString('en-US', options);
+        i++;
+      }
+    }
+  },
+  watch: {
+    dateFormat() {
+      this.generateDate();
     }
   },
   computed: {
     ...mapState({
       role: state => state.role
-    })
+    }),
   }
 }
 </script>
@@ -160,7 +180,7 @@ export default {
   color: #8AC1D9;
 }
 
-.filter{
+.filter {
   margin-top: 55px;
   margin-left: 10px;
   text-decoration: none;
@@ -171,11 +191,11 @@ export default {
   content: '▾';
 }
 
-.filter:hover{
+.filter:hover {
   text-decoration: underline;
 }
 
-.lecture-table{
+.lecture-table {
   display: grid;
   max-height: 24px;
   overflow: hidden;
@@ -290,12 +310,12 @@ input[type=radio] {
   outline: none;
 }
 
-input:checked{
+input:checked {
   background: #8AC1D9;
   border: 2px solid #8AC1D9;
 }
 
-.radio-option:checked  + label{
+.radio-option:checked + label {
   color: #8AC1D9;
 }
 

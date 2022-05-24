@@ -18,12 +18,12 @@ export default {
   data() {
     return {
       lectures: [
-        {id:'1', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
-        {id:'2', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
-        {id:'3', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
-        {id:'4', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
-        {id:'5', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
-        {id:'6', week:'1', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+        {id:'1', week:'1',  weekday: 'thu', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+        {id:'2', week:'1', weekday: 'thu',lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+        {id:'3', week:'1', weekday: 'thu',lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+        {id:'4', week:'1', weekday: 'mon', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+        {id:'5', week:'1', weekday: 'mon', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
+        {id:'6', week:'1', weekday: 'fri', lecture:'1', auditorium: '5555', course: 'dfvkldsvmcksdmck', professor: 'svvsdvsd', group:'dd255'},
       ]
     }
   },
