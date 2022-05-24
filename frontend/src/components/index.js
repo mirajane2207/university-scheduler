@@ -21,6 +21,7 @@ import ProfessorInfo from "@/components/ProfessorInfo";
 import CustomSelect from "@/components/CustomSelect";
 import LecturesTable from "@/components/LecturesTable";
 import LectureForm from "@/components/LectureForm";
+import ScheduleTable from "@/components/ScheduleTable";
 
 export default [
     AuditoriumsTable,
@@ -43,6 +44,7 @@ export default [
     Navbar,
     ProfessorInfo,
     ProfessorsTable,
+    ScheduleTable,
     StudentInfo,
     StudentsTable,
     UpdateForm

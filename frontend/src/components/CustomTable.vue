@@ -38,10 +38,8 @@
 </template>
 
 <script>
-import UpdateForm from "@/components/UpdateForm";
 export default {
   name: 'CustomTable',
-  components: {UpdateForm},
   props: {
     items: {
       type: Array,
