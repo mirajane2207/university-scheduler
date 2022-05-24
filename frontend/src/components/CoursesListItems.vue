@@ -4,7 +4,6 @@
         v-for="course in courses"
         :course="course"
         :key="course.id"
-        @remove="$emit('remove', course)"
     />
   </div>
   <h2 v-else>

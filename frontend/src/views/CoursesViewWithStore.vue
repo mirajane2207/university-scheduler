@@ -10,16 +10,9 @@
 </template>
 
 <script>
-import CourseForm from "@/components/CourseInfo";
-import CoursesList from "@/components/CoursesTable";
 import {mapState, mapActions} from 'vuex';
-import CoursesListItems from "@/components/CoursesListItems";
 
 export default {
-  components: {
-    CoursesListItems,
-    CourseForm, CoursesList
-  },
   data() {
     return {
       dialogVisisble: false
@@ -45,6 +38,7 @@ export default {
   mounted(){
     this.fetchCourses();
   },
+
   computed: {
     ...mapState({
       courses: state => state.courses.courses,

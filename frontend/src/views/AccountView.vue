@@ -6,21 +6,19 @@
           <h2 class="courses__title">courses</h2>
         </div>
         <ul class="courses__list">
-          <li class="courses__list-item">English</li>
-          <li class="courses__list-item">High math</li>
-          <li class="courses__list-item">Artificial intelligense</li>
-          <li class="courses__list-item">Computer system</li>
-          <li class="courses__list-item">Computer network</li>
-          <li class="courses__list-item">Multimedia technology</li>
+          <li class="courses__list-item" v-for="course in user.courses">{{ course.name }}</li>
         </ul>
       </div>
     </div>
     <div class="info-section">
       <section class="main-info">
-        <h1 class="main-info__name">{{ user.name }} {{user.surname}}</h1>
-        <p class="main-info__role">{{ user.role }}
-        <span> <router-link to="/group" class="main-info__group" v-if="user.role === 'student'">{{user.group}}</router-link>
-</span>
+        <h1 class="main-info__name">{{ user.name }} {{ user.surname }}</h1>
+        <p class="main-info__role">{{ role }}
+          <span>
+            <router-link to="/group" class="main-info__group"
+                       v-if="role === 'student'">{{ user.group.name }}
+            </router-link>
+          </span>
         </p>
         <div class="edit-form" v-if="editVisible">
           <label for="email" class="label">Email</label>
@@ -36,11 +34,11 @@
 
         <div class="info__btns">
           <div class="log-out-btn" v-if="editVisible">
-            <a href="#" class="log-out-btn-title" @click="hideEdit" >Save</a>
+            <a href="#" class="log-out-btn-title" @click="hideEdit">Save</a>
           </div>
           <custom-button @click="showEdit" v-if="!editVisible">Edit</custom-button>
           <div class="log-out-btn" v-if="!editVisible">
-            <a href="log-out-btn" class="log-out-btn-title" >log out</a>
+            <a href="log-out-btn" class="log-out-btn-title">log out</a>
           </div>
         </div>
       </section>
@@ -49,29 +47,43 @@
 </template>
 
 <script>
+import {mapActions, mapState} from "vuex";
+
 export default {
   name: "AccountView",
-  components: {},
 
   data() {
     return {
-      user: {
-        id: '1',
-        name: 'Oksana',
-        surname: 'chernenko',
-        role: 'student',
-        group: 'SP-437B'
-      },
+      // user: {
+      //   id: '1',
+      //   name: 'Oksana',
+      //   surname: 'chernenko',
+      //   role: 'student',
+      //   group: 'SP-437B'
+      // },
       editVisible: false
     }
   },
   methods: {
+    ...mapActions({
+      fetchStudent: 'students/fetchStudent'
+    }),
     showEdit() {
       this.editVisible = true;
     },
     hideEdit() {
       this.editVisible = false;
     }
+  },
+
+  mounted(){
+    this.fetchStudent();
+  },
+  computed: {
+    ...mapState({
+      user: state => state.students.student,
+      role: state => state.role
+    })
   }
 }
 </script>
@@ -87,7 +99,6 @@ export default {
 /* Main styles end*/
 
 
-
 /* Courses styles start*/
 .courses-section {
   margin: 0 0 0 auto;
@@ -98,7 +109,6 @@ export default {
   filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.1));
   backdrop-filter: blur(6px);
   border-radius: 20px;
-  /* transform: matrix(-1, 0, 0, 1, 0, 0); */
 }
 
 .courses {
@@ -173,7 +183,7 @@ export default {
 
 .info-section {
   position: absolute;
-  top: 70px;
+  top: 20px;
   bottom: 0;
   margin: auto;
   padding-top: 48px;
@@ -254,6 +264,7 @@ export default {
   padding-top: 19px;
   background: #8AC1D9;
   border-radius: 8px;
+  text-align: center;
 }
 
 .log-out-btn-title {

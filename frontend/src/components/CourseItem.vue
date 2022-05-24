@@ -20,9 +20,8 @@
 
 <script>
 
-import CustomButton from "@/components/CustomButton";
 export default {
-  components: {CustomButton},
+  name:'CourseItem',
   props: {
     course: {
       type: Object,

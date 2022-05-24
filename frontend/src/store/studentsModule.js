@@ -3,6 +3,9 @@ import axios from "axios";
 export const studentsModule = {
     state: () => ({
         students: [],
+        student: {
+          type: Object
+        },
         isLoading: false
     }),
     getters: {
@@ -10,6 +13,9 @@ export const studentsModule = {
     mutations: {
         setStudents(state, students) {
             state.students = students;
+        },
+        setStudent(state, student) {
+            state.student = student;
         },
         setLoading(state, isLoading) {
             state.isLoading = isLoading;
@@ -25,6 +31,14 @@ export const studentsModule = {
                 alert('error')
             } finally {
                 commit('setLoading', false);
+            }
+        },
+        async fetchStudent({state, commit}) {
+            try {
+                const response = await axios.get('/api/students/1');
+                commit('setStudent', response.data);
+            } catch (e) {
+                alert('error')
             }
         }
     },

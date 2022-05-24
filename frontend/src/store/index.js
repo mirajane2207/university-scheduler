@@ -8,6 +8,10 @@ import {studentsModule} from "@/store/studentsModule";
 
 
 export default createStore({
+  state: {
+    role: 'student'
+  },
+
   modules: {
     auditoriums: auditoriumsModule,
     courses: coursesModule,

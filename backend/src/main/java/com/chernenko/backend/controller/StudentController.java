@@ -30,7 +30,7 @@ public class StudentController {
         return studentRepository.findAll();
     }
 
-    @GetMapping("id")
+    @GetMapping("{id}")
     public Student getById(@PathVariable("id") Student student) {
         return student;
     }
